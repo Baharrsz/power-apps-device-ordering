@@ -1,0 +1,280 @@
+"'Submit Success Screen' As screen":
+
+    Label1 As label:
+        Align: =Align.Center
+        Height: =74
+        Size: =24
+        Text: ="Your device request has been successfully submitted. Thank you."
+        Width: =829
+        X: =266
+        Y: =194
+        ZIndex: =3
+
+    Header_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =3
+
+        "'Header Label_2' As label":
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(0, 94, 146, 1)
+            Height: =94
+            Size: =24
+            Text: ="Device Ordering App"
+            Width: =1366
+            ZIndex: =1
+
+        "'User Lable_2' As label":
+            Align: =Align.Right
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =47
+            PaddingRight: =20
+            Size: =12
+            Text: ="Hello, " & User().FullName
+            Width: =212
+            X: =1108
+            Y: =23
+            ZIndex: =2
+
+    Button1 As button:
+        OnSelect: =Clear(compareList); Navigate('Main Screen', ScreenTransition.None)
+        Text: ="OK"
+        X: =600
+        Y: =680
+        ZIndex: =4
+
+    FormViewer1 As formViewer:
+        DataSource: ='Device Orders'
+        Height: =289
+        Item: =Form1.LastSubmit
+        NumberOfColumns: =1
+        Width: =486
+        X: =440
+        Y: =329
+        ZIndex: =5
+
+        Price_DataCard2 As typedDataCard.USCurrencyViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr2d7_price"
+            Default: =ThisItem.Price
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Device Orders'],DataSourceInfo.DisplayName,"cr2d7_price")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Width: =486
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey9 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =(Parent.Width - 60) * 0.4
+                Wrap: =false
+                X: =30
+                Y: =10 + (DataCardValue8.Height / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            DataCardValue8 As label:
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: |-
+                    =Text(Parent.Default, "$###.##")
+                Width: =Parent.Width - DataCardKey9.Width - 60
+                X: =DataCardKey9.X + DataCardKey9.Width
+                Y: =10
+                ZIndex: =2
+
+        Comments_DataCard2 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr2d7_comments"
+            Default: =ThisItem.Comments
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Device Orders'],DataSourceInfo.DisplayName,"cr2d7_comments")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =486
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey10 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =(Parent.Width - 60) * 0.4
+                Wrap: =false
+                X: =30
+                Y: =10 + (DataCardValue9.Height / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            DataCardValue9 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey10.X + DataCardKey10.Width
+                Y: =10
+                ZIndex: =2
+
+        Approver_DataCard2 As typedDataCard.emailViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr2d7_approver"
+            Default: =ThisItem.Approver
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Device Orders'],DataSourceInfo.DisplayName,"cr2d7_approver")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =486
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey11 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =(Parent.Width - 60) * 0.4
+                Wrap: =false
+                X: =30
+                Y: =10 + (DataCardValue10.Height / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            DataCardValue10 As htmlViewer:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =31
+                HtmlText: |-
+                    ="<a href='mailto:" & Parent.Default & "'>" & Parent.Default & "</a>"
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey11.X + DataCardKey11.Width
+                Y: =10
+                ZIndex: =2
+
+        "'Requested By_DataCard2' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr2d7_requestedby"
+            Default: =ThisItem.'Requested By'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Device Orders'],DataSourceInfo.DisplayName,"cr2d7_requestedby")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =486
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey12 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =(Parent.Width - 60) * 0.4
+                Wrap: =false
+                X: =30
+                Y: =10 + (DataCardValue11.Height / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            DataCardValue11 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey12.X + DataCardKey12.Width
+                Y: =10
+                ZIndex: =2
+
+        "'Request Date_DataCard2' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr2d7_requestdate"
+            Default: =ThisItem.'Request Date'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Device Orders'],DataSourceInfo.DisplayName,"cr2d7_requestdate")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =486
+            X: =0
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey13 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =(Parent.Width - 60) * 0.4
+                Wrap: =false
+                X: =30
+                Y: =10 + (DataCardValue12.Height / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            DataCardValue12 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey13.X + DataCardKey13.Width
+                Y: =10
+                ZIndex: =2
+
+        "'Device Name_DataCard2' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="cr2d7_devicename"
+            Default: =ThisItem.'Device Name'
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@'Device Orders'],DataSourceInfo.DisplayName,"cr2d7_devicename")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =true
+            Width: =486
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+            DataCardKey2 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =(Parent.Width - 60) * 0.4
+                Wrap: =false
+                X: =30
+                Y: =10 + (DataCardValue2.Height / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            DataCardValue2 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey2.X + DataCardKey2.Width
+                Y: =10
+                ZIndex: =2
+
